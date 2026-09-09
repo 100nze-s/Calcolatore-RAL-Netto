@@ -157,7 +157,7 @@ with col_left:
     """, unsafe_allow_html=True)
 
 with col_right:
-    st.subheader("Composizione della RAL")
+    st.subheader("📊 Composizione della RAL")
     
     labels = ['Netto in Tasca', 'IRPEF Netta', 'Contributi INPS', 'Addizionali Locali']
     
