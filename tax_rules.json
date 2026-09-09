@@ -1,0 +1,8 @@
+{
+  "inps_rate": 0.0919,
+  "irpef_brackets": [
+    {"threshold": 28000, "rate": 0.23},
+    {"threshold": 50000, "rate": 0.35},
+    {"threshold": null, "rate": 0.43}
+  ]
+}
