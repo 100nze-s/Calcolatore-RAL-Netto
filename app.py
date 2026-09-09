@@ -3,7 +3,7 @@ import plotly.graph_objects as go
 from src.calculator import load_rules, calculate_net_salary
 
 # Configurazione pagina a larghezza intera
-st.set_page_config(page_title="Calcolatore Netto RAL Milano", layout="wide")
+st.set_page_config(page_title="Calcolatore RAL-Netto", layout="wide")
 
 # CSS Personalizzato per mettere in risalto gli elementi e definire i colori
 st.markdown("""
@@ -82,7 +82,7 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-st.title("🧮 Calcolatore Netto Annuale")
+st.title("🧮 Calcolatore RAL-Netto")
 st.caption("Simulatore per <b><u>dipendenti</u></b> a <b><u>tempo indeterminato</u></b> (<b><u>Milano</u></b>)", unsafe_allow_html=True)
 
 def fmt(val: float) -> str:
