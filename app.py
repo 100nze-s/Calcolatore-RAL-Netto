@@ -83,7 +83,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 st.title("🧮 Calcolatore Netto Annuale")
-st.caption("Simulatore per dipendenti a tempo indeterminato (Milano)")
+st.caption("Simulatore per **dipendenti** a **tempo indeterminato** (**Milano**)")
 
 def fmt(val: float) -> str:
     return f"€ {val:,.2f}".replace(",", "X").replace(".", ",").replace("X", ".")
