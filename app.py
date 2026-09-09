@@ -32,6 +32,7 @@ st.markdown("""
         padding: 20px;
         text-align: center;
         box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
+        margin-bottom: 16px;
     }
     .metric-card-blue {
         border: 2px solid #38bdf8;
