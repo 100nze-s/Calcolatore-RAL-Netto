@@ -62,7 +62,7 @@ with col_left:
     """)
 
 with col_right:
-    st.subheader("🥧 Composizione RAL")
+    st.subheader("Composizione RAL")
     
     # Quote per il Grafico a Donut
     labels = ['Netto in Tasca', 'IRPEF Netta', 'Contributi INPS', 'Addizionali Locali']
