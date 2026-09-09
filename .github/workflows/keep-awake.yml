@@ -1,0 +1,28 @@
+name: Keep Streamlit App Awake
+
+on:
+  schedule:
+    - cron: "13 0 * * *"   # 00:13 UTC
+    - cron: "20 6 * * *"   # 06:20 UTC
+    - cron: "27 12 * * *"  # 12:27 UTC
+    - cron: "34 18 * * *"  # 18:34 UTC
+  workflow_dispatch:
+
+jobs:
+  ping-via-commit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Configura Git
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@://github.com"
+
+      - name: Invia Commit Vuoto
+        run: |
+          git commit --allow-empty -m "Mantenimento attivita Streamlit"
+          git push origin main
