@@ -5,44 +5,45 @@ from src.calculator import load_rules, calculate_net_salary
 # Configurazione pagina a larghezza intera
 st.set_page_config(page_title="Calcolatore RAL-Netto", layout="wide")
 
-# CSS Personalizzato per mettere in risalto gli elementi e definire i colori
+# CSS
 st.markdown("""
 <style>
     /* Styling del box Input RAL */
     div[data-testid="stTextInput"] {
-        background-color: #0f172a;
+        background-color: var(--secondary-background-color);
         padding: 16px;
         border-radius: 12px;
-        border: 1px solid #334155;
+        border: 1px solid rgba(128, 128, 128, 0.2);
     }
     div[data-testid="stTextInput"] input {
         font-size: 1.5rem !important;
         font-weight: bold !important;
-        color: #38bdf8 !important;
-        background-color: #1e293b !important;
-        border: 2px solid #38bdf8 !important;
+        color: var(--text-color) !important;
+        background-color: var(--background-color) !important;
+        border: 2px solid #0284c7 !important;
         border-radius: 8px !important;
         padding: 8px 12px !important;
     }
     
     /* Box Risultati principali (Card) */
     .metric-card {
-        background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+        background-color: var(--secondary-background-color);
         border-radius: 14px;
         padding: 20px;
         text-align: center;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
         margin-bottom: 16px;
     }
     .metric-card-blue {
-        border: 2px solid #38bdf8;
+        border: 2px solid #0284c7;
     }
     .metric-card-green {
-        border: 2px solid #22c55e;
+        border: 2px solid #16a34a;
     }
     .metric-title {
         font-size: 0.95rem;
-        color: #94a3b8;
+        color: var(--text-color);
+        opacity: 0.75;
         font-weight: 700;
         text-transform: uppercase;
         letter-spacing: 0.5px;
@@ -51,7 +52,7 @@ st.markdown("""
     .metric-value {
         font-size: 2.3rem;
         font-weight: 800;
-        color: #ffffff;
+        color: var(--text-color);
     }
 
     /* Tag colore per il Dettaglio */
