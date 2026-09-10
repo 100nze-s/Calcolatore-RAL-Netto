@@ -133,7 +133,7 @@ col_left, col_right = st.columns([1.1, 0.9])
 
 with col_left:
     st.subheader("📋 Dettaglio e Trattenute")
-    st.caption("ℹ️ *Tutti gli importi riportati sotto sono calcolati su **base annua**.*")
+    st.caption("ℹ️ *Tutti gli importi sotto sono calcolati su **base annua**.*")
     st.write("")
     
     st.markdown(f"""
