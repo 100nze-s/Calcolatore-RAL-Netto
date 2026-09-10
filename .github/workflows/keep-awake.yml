@@ -2,16 +2,46 @@ name: Keep Streamlit App Awake
 
 on:
   schedule:
-    - cron: "13 0 * * *"   # 00:13 UTC
-    - cron: "20 6 * * *"   # 06:20 UTC
-    - cron: "27 12 * * *"  # 12:27 UTC
-    - cron: "34 18 * * *"  # 18:34 UTC
+    - cron: "13 0 * * *"
+    - cron: "20 6 * * *"
+    - cron: "27 12 * * *"
+    - cron: "34 18 * * *"
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
-  ping-via-commit:
+  ping-and-commit:
     runs-on: ubuntu-latest
     steps:
+      # --- PARTE 1: NAVIGAZIONE CON PLAYWRIGHT ---
+      - name: Installa Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Installa Playwright
+        run: |
+          npm install playwright
+          npx playwright install chromium
+
+      - name: Esegui il vero accesso all'app
+        # Attende 10 secondi per caricare i WebSocket.
+        run: |
+          node -e "
+          const { chromium } = require('playwright');
+          (async () => {
+            const browser = await chromium.launch({ headless: true });
+            const page = await browser.newPage();
+            await page.goto('https://calcolatore-ral-netto-kqqhrapp8azevxrwose5pjv.streamlit.app');
+            await page.waitForTimeout(10000); // Resta sulla pagina 10 secondi per simulare l'uso
+            console.log('App caricata con successo con WebSocket attivi!');
+            await browser.close();
+          })();
+          "
+
+      # --- PARTE 2: COMMIT VUOTO (per sicurezza) ---
       - name: Checkout Repository
         uses: actions/checkout@v4
         with:
@@ -24,5 +54,5 @@ jobs:
 
       - name: Invia Commit Vuoto
         run: |
-          git commit --allow-empty -m "Mantenimento attivita Streamlit"
+          git commit --allow-empty -m "Mantenimento attivita Streamlit (Automatico)"
           git push origin main
