@@ -84,7 +84,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 st.title("🧮 Calcolatore RAL-Netto")
-st.subtitle("Simulatore per <b><u>dipendenti</u></b> a <b><u>tempo indeterminato</u></b> (<b><u>Milano</u></b>)", unsafe_allow_html=True)
+st.caption("Simulatore per <b><u>dipendenti</u></b> a <b><u>tempo indeterminato</u></b> (<b><u>Milano</u></b>)", unsafe_allow_html=True)
 
 def fmt(val: float) -> str:
     return f"€ {val:,.2f}".replace(",", "X").replace(".", ",").replace("X", ".")
